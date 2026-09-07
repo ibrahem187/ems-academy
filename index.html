@@ -7,9 +7,9 @@
     <title>بوابة المتدربين - Ministry Of Health</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0b131f; color: #e2e8f0; line-height: 1.6; scroll-behavior: smooth; }
+        body { background-color: #0b131f; color: #e2e8f0; line-height: 1.6; }
 
-        /* شريط شعار مستري بالاعلى (مع الصورة الرسمية مباشرة) */
+        /* شريط شعار مستري بالاعلى */
         .top-mystery-bar {
             background: linear-gradient(90deg, #070b12, #0f172a, #070b12);
             border-bottom: 2px solid rgba(255, 102, 0, 0.4);
@@ -48,11 +48,16 @@
             font-weight: bold;
         }
 
-        /* الصفحة الترحيبية */
+        /* الصفحة الترحيبية (الرئيسية) */
         .hero-section { 
             background: linear-gradient(rgba(11, 19, 31, 0.9), rgba(11, 79, 108, 0.8)), url('https://i.ibb.co/QFBM0Zz4/image.png');
             background-size: cover; background-position: center;
-            color: white; padding: 50px 20px 40px 20px; text-align: center; border-bottom: 4px solid #01baef;
+            color: white; padding: 60px 20px 50px 20px; text-align: center; border-bottom: 4px solid #01baef;
+            min-height: calc(100vh - 54px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .hero-badge { background: rgba(1, 186, 239, 0.2); color: #01baef; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid #01baef; display: inline-block; margin-bottom: 15px; }
         .hero-section h1 { font-size: 38px; margin-bottom: 15px; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
@@ -62,34 +67,82 @@
         .ems-nav-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
+            gap: 12px;
             max-width: 950px;
             margin: 25px auto 0 auto;
             padding: 0 10px;
+            width: 100%;
         }
         .nav-card {
             background: rgba(15, 23, 42, 0.85);
             border: 1px solid rgba(1, 186, 239, 0.4);
             color: #ffffff;
-            padding: 12px 10px;
+            padding: 14px 10px;
             text-align: center;
             border-radius: 8px;
             font-size: 13px;
             font-weight: bold;
-            text-decoration: none;
+            cursor: pointer;
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
             display: block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
         .nav-card:hover {
             background: #01baef;
             color: #0b131f;
             border-color: #01baef;
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(1, 186, 239, 0.4);
+            box-shadow: 0 6px 15px rgba(1, 186, 239, 0.4);
         }
         
+        /* نظام إخفاء وإظهار الأقسام */
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+
         .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+        
+        /* زر العودة للرئيسية الفخم */
+        .back-to-home-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #131f2e;
+            border: 1px solid #1e293b;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .back-btn {
+            background: #01baef;
+            color: #0b131f;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .back-btn:hover {
+            background: #0284c7;
+            color: #fff;
+            transform: scale(1.03);
+        }
+        .section-title-indicator {
+            color: #01baef;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
         .section-card { background: #131f2e; border: 1px solid #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); margin-bottom: 30px; }
         .section-card h2 { color: #01baef; margin-bottom: 20px; font-size: 22px; border-bottom: 2px solid #1e293b; padding-bottom: 10px; }
 
@@ -106,7 +159,7 @@
         .rule-item { background: #0f172a; border: 1px solid #334155; padding: 12px 16px; border-radius: 8px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: #cbd5e1; }
         .rule-num { background: rgba(1, 186, 239, 0.15); color: #01baef; font-weight: bold; padding: 2px 8px; border-radius: 6px; font-size: 13px; min-width: 35px; text-align: center; }
 
-        /* تنسيقات قسم خريطة الزونات */
+        /* خريطة الزونات */
         .zone-img-box {
             background: #0f172a;
             border: 1px solid #334155;
@@ -123,11 +176,11 @@
             border-radius: 6px;
         }
 
-        /* تنسيق الفيديوهات */
+        /* الفيديوهات */
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
@@ -135,15 +188,9 @@
             background: #0f172a;
             margin-top: 15px;
         }
-        .video-container iframe,
-        .video-container video {
+        .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-            object-fit: contain;
+            top: 0; left: 0; width: 100%; height: 100%; border: 0;
         }
         .video-desc {
             margin-top: 15px;
@@ -166,41 +213,51 @@
 </head>
 <body>
 
-    <!-- شريط شعار مستري في أعلى الموقع مع الصورة المباشرة -->
+    <!-- شريط شعار مستري في أعلى الموقع -->
     <div class="top-mystery-bar">
         <span class="mystery-badge-icon">OFFICIAL</span>
         <img src="https://i.ibb.co/gF6RJ4nQ/MT-Avatar-1771104723139-y-Bc-HNWFs.png" alt="MT Logo">
         <span class="mystery-logo-text">MYSTERY (مستري)</span>
     </div>
 
-    <!-- 1. الصفحة الترحيبية -->
-    <header id="welcome" class="hero-section">
-        <div class="hero-badge">مرحباً بك في المنظومة الصحية</div>
-        <h1>أهلاً بك أيها المسعف في أكاديمية الصحة</h1>
-        <p>بوابتك الرسمية للاطلاع على القوانين، الأنظمة، البنود، العقوبات، الرتب، البروتوكولات، والمرافق بكل سهولة واحترافية.</p>
-        
-        <!-- الأزرار التفاعلية في المنتصف -->
-        <div class="ems-nav-grid">
-            <a href="#welcome" class="nav-card">الرئيسية</a>
-            <a href="#rules-system" class="nav-card">القوانين والأنظمة</a>
-            <a href="#violations" class="nav-card">البنود والمخالفات</a>
-            <a href="#penalties" class="nav-card">جدول العقوبات</a>
-            <a href="#badges-courses" class="nav-card">وينقات ودورات الصحة</a>
-            <a href="#ranks" class="nav-card">الرتب والوينقات</a>
-            <a href="#rules-warnings" class="nav-card">الرولز والتحذيرات</a>
-            <a href="#protocols" class="nav-card">البروتوكولات</a>
-            <a href="#facilities" class="nav-card">مرافق المستشفى</a>
-            <a href="#equipmentExplanation" class="nav-card">شرح المعدات الطبية</a>
-            <a href="#treatmentVideo" class="nav-card">شرح طريقة العلاج</a>
-            <a href="#zoneMap" class="nav-card">خريطة الزونات</a>
-            <a href="#vehicles" class="nav-card">المركبات</a>
-        </div>
-    </header>
+    <!-- 1. واجهة الرئيسية (Dashboard) -->
+    <div id="section-welcome" class="page-section active">
+        <header class="hero-section">
+            <div class="hero-badge">مرحباً بك في المنظومة الصحية</div>
+            <h1>أهلاً بك أيها المسعف في أكاديمية الصحة</h1>
+            <p>بوابتك الرسمية للاطلاع على القوانين، الأنظمة، البنود، العقوبات، الرتب، البروتوكولات، والمرافق بكل سهولة واحترافية.</p>
+            
+            <!-- الأزرار التفاعلية -->
+            <div class="ems-nav-grid">
+                <button class="nav-card" onclick="showSection('rules-system')">القوانين والأنظمة</button>
+                <button class="nav-card" onclick="showSection('violations')">البنود والمخالفات</button>
+                <button class="nav-card" onclick="showSection('penalties')">جدول العقوبات</button>
+                <button class="nav-card" onclick="showSection('badges-courses')">وينقات ودورات الصحة</button>
+                <button class="nav-card" onclick="showSection('ranks')">الرتب والوينقات</button>
+                <button class="nav-card" onclick="showSection('rules-warnings')">الرولز والتحذيرات</button>
+                <button class="nav-card" onclick="showSection('protocols')">البروتوكولات</button>
+                <button class="nav-card" onclick="showSection('facilities')">مرافق المستشفى</button>
+                <button class="nav-card" onclick="showSection('equipmentExplanation')">شرح المعدات الطبية</button>
+                <button class="nav-card" onclick="showSection('treatmentVideo')">شرح طريقة العلاج</button>
+                <button class="nav-card" onclick="showSection('zoneMap')">خريطة الزونات</button>
+                <button class="nav-card" onclick="showSection('vehicles')">المركبات</button>
+            </div>
+        </header>
+    </div>
 
+    <!-- محتوى الأقسام الداخلية (تفتح بشكل منفصل عند الضغط) -->
     <div class="container">
-        
+
+        <!-- شريط العودة للرئيسية (يظهر داخل الأقسام) -->
+        <div id="nav-header-bar" style="display: none;" class="back-to-home-bar">
+            <button class="back-btn" onclick="showSection('welcome')">
+                <span>◀ العودة للرئيسية</span>
+            </button>
+            <div id="current-section-title" class="section-title-indicator">اسم القسم</div>
+        </div>
+
         <!-- 2. القوانين والأنظمة -->
-        <div id="rules-system" class="section-card">
+        <div id="section-rules-system" class="page-section section-card" data-title="القوانين والأنظمة العامة">
             <h2>2. القوانين والأنظمة العامة</h2>
             <div class="rules-list">
                 <div class="rule-item"><span class="rule-num">1</span><span>يجب احترام جميع المواطنين واللاعبين والعساكر.</span></div>
@@ -229,8 +286,8 @@
             </div>
         </div>
 
-        <!-- 3. البنود والمخالفات الكاملة -->
-        <div id="violations" class="section-card">
+        <!-- 3. البنود والمخالفات -->
+        <div id="section-violations" class="page-section section-card" data-title="البنود والمخالفات الكاملة">
             <h2>3. البنود والمخالفات الكاملة (حسب الدرجات)</h2>
             <div class="table-responsive">
                 <table>
@@ -414,7 +471,7 @@
         </div>
 
         <!-- 4. جدول العقوبات -->
-        <div id="penalties" class="section-card">
+        <div id="section-penalties" class="page-section section-card" data-title="جدول العقوبات والنسب">
             <h2>4. جدول العقوبات والنسب حسب الرتب</h2>
             <div class="table-responsive">
                 <table>
@@ -447,7 +504,7 @@
         </div>
 
         <!-- 5. وينقات ودورات الصحة -->
-        <div id="badges-courses" class="section-card">
+        <div id="section-badges-courses" class="page-section section-card" data-title="وينقات ودورات الصحة">
             <h2>5. وينقات ودورات الصحة</h2>
             <div class="table-responsive">
                 <table>
@@ -502,7 +559,7 @@
         </div>
 
         <!-- 6. الرتب والوينقات -->
-        <div id="ranks" class="section-card">
+        <div id="section-ranks" class="page-section section-card" data-title="الرتب والوينقات">
             <h2>6. الرتب والوينقات (Promotions & Certificates)</h2>
             <div class="table-responsive">
                 <table>
@@ -536,7 +593,7 @@
         </div>
 
         <!-- 7. الرولز والتحذيرات -->
-        <div id="rules-warnings" class="section-card">
+        <div id="section-rules-warnings" class="page-section section-card" data-title="القوانين والتحذيرات">
             <h2>7. القوانين والتحذيرات (Rules and Warnings)</h2>
             <div class="rules-list">
                 <div class="rule-item"><span class="rule-num">#</span><span><b>الاحترام:</b> احترام المواطنين</span></div>
@@ -560,8 +617,8 @@
             </div>
         </div>
 
-        <!-- 8. البروتوكولات وأكواد اللاسلكي المعتمدة -->
-        <div id="protocols" class="section-card">
+        <!-- 8. البروتوكولات -->
+        <div id="section-protocols" class="page-section section-card" data-title="البروتوكولات وأكواد اللاسلكي">
             <h2>8. البروتوكولات وأكواد اللاسلكي المعتمدة</h2>
             <div class="table-responsive">
                 <table>
@@ -736,7 +793,7 @@
         </div>
 
         <!-- 9. مرافق المستشفى -->
-        <div id="facilities" class="section-card">
+        <div id="section-facilities" class="page-section section-card" data-title="مرافق المستشفى">
             <h2>9. مرافق المستشفى الأساسية</h2>
             <div class="grid-3">
                 <div class="custom-card">
@@ -772,15 +829,14 @@
             </div>
         </div>
 
-        <!-- 10. شرح المعدات الطبية وكيفية أخذها -->
-        <div id="equipmentExplanation" class="section-card">
+        <!-- 10. شرح المعدات الطبية -->
+        <div id="section-equipmentExplanation" class="page-section section-card" data-title="شرح المعدات الطبية">
             <h2>10. شرح المعدات الطبية وكيفية أخذها</h2>
             <div class="video-desc">شرح المعدات الطبية وكيفية أخذها</div>
             <div class="video-container">
                 <iframe src="https://www.youtube-nocookie.com/embed/rsckR_Y2OEc" 
                         title="شرح المعدات الطبية وكيفية أخذها" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
                         allowfullscreen>
                 </iframe>
             </div>
@@ -810,14 +866,13 @@
         </div>
 
         <!-- 11. مرئيات وبروتوكولات العلاج -->
-        <div id="treatmentVideo" class="section-card">
+        <div id="section-treatmentVideo" class="page-section section-card" data-title="شرح طريقة العلاج">
             <h2>11. مرئيات وبروتوكولات العلاج</h2>
             <div class="video-desc">شرح طريقة العلاج بشكل كامل</div>
             <div class="video-container">
                 <iframe src="https://www.youtube-nocookie.com/embed/KSIOBMtky2A" 
                         title="مرئيات وبروتوكولات العلاج" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
                         allowfullscreen>
                 </iframe>
             </div>
@@ -828,8 +883,8 @@
             </div>
         </div>
 
-        <!-- 12. خريطة توزيع الزونات (EMS Zone Map) -->
-        <div id="zoneMap" class="section-card">
+        <!-- 12. خريطة توزيع الزونات -->
+        <div id="section-zoneMap" class="page-section section-card" data-title="خريطة الزونات">
             <h2>12. خريطة توزيع الزونات (EMS Zone Map)</h2>
             <div class="zone-img-box">
                 <img src="https://i.ibb.co/HTTtHx27/2026-09-07-123232.png" alt="EMS Zone Map">
@@ -843,7 +898,7 @@
         </div>
 
         <!-- 13. المركبات المخصصة -->
-        <div id="vehicles" class="section-card">
+        <div id="section-vehicles" class="page-section section-card" data-title="المركبات المخصصة">
             <h2>13. المركبات المخصصة لكل رتبة</h2>
             <div class="grid-3">
                 <div class="custom-card">
@@ -887,5 +942,31 @@
         <div>Ministry Of Health - Trainees Portal &copy; 2026</div>
         <div>تصميم وتطوير: <span>إبراهيم عبدالله (مستري)</span></div>
     </footer>
+
+    <!-- سكود البرمجة للتبديل السلس بين الأقسام -->
+    <script>
+        function showSection(sectionId) {
+            // إخفاء كل الأقسام
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // إظهار القسم المطلوب
+            const target = document.getElementById('section-' + sectionId);
+            if (target) {
+                target.classList.add('active');
+                
+                // تحديث عنوان القسم وشريط العودة إذا لم يكن الصفحة الرئيسية
+                const navBar = document.getElementById('nav-header-bar');
+                if (sectionId === 'welcome') {
+                    navBar.style.display = 'none';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    navBar.style.display = 'flex';
+                    document.getElementById('current-section-title').innerText = target.getAttribute('data-title');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        }
+    </script>
 </body>
 </html>
