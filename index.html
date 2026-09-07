@@ -9,32 +9,37 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #0b131f; color: #e2e8f0; line-height: 1.6; scroll-behavior: smooth; }
 
-        /* شريط حقوق وشعار مستري بالاعلى */
+        /* شريط شعار مستري بالاعلى مع الشعار الفعلي */
         .top-mystery-bar {
             background: linear-gradient(90deg, #070b12, #0f172a, #070b12);
-            border-bottom: 2px solid rgba(1, 186, 239, 0.3);
-            padding: 10px 20px;
+            border-bottom: 2px solid rgba(255, 102, 0, 0.4);
+            padding: 8px 20px;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 14px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             position: relative;
             z-index: 100;
         }
+        .mystery-logo-img {
+            height: 32px;
+            width: 32px;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+        }
         .mystery-logo-text {
-            background: linear-gradient(135deg, #01baef, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
             font-weight: 900;
             font-size: 16px;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(1, 186, 239, 0.5);
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
         }
         .mystery-badge-icon {
-            background: #01baef;
+            background: #ff6600;
             color: #0b131f;
             padding: 2px 8px;
             border-radius: 4px;
@@ -160,10 +165,10 @@
 </head>
 <body>
 
-    <!-- شريط شعار مستري في أعلى الموقع -->
+    <!-- شريط شعار مستري في أعلى الموقع مع الشعار الفعلي -->
     <div class="top-mystery-bar">
         <span class="mystery-badge-icon">OFFICIAL</span>
-        <span style="color: #94a3b8;">إشراف وتصميم:</span>
+        <img src="https://i.ibb.co/68XwK3f/MT.png" alt="Mystery Logo" class="mystery-logo-img">
         <span class="mystery-logo-text">MYSTERY (مستري)</span>
     </div>
 
@@ -865,7 +870,7 @@
                     </div>
                 </div>
                 <div class="custom-card">
-                    <div class="card-header" dir="ltr">Name : Air</div>
+                    <div class="card-header" dir="ltr" style="color: #01baef;">Name : Air</div>
                     <img src="https://i.ibb.co/8nK4jvmJ/2026-09-07-124551.png" alt="Air EMS">
                     <div class="card-body" dir="ltr" style="text-align: center;">
                         <b style="color: #01baef;">لحاملي وينق الايرشب</b><br>
