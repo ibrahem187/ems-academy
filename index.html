@@ -9,7 +9,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #0b131f; color: #e2e8f0; line-height: 1.6; scroll-behavior: smooth; }
 
-        /* شريط شعار مستري بالاعلى مع الشعار الفعلي */
+        /* شريط شعار مستري بالاعلى (شعار MT النيون الاحترافي المضمون) */
         .top-mystery-bar {
             background: linear-gradient(90deg, #070b12, #0f172a, #070b12);
             border-bottom: 2px solid rgba(255, 102, 0, 0.4);
@@ -24,12 +24,16 @@
             position: relative;
             z-index: 100;
         }
-        .mystery-logo-img {
-            height: 32px;
-            width: 32px;
-            object-fit: contain;
+        .mystery-logo-badge {
+            background: linear-gradient(135deg, #ff6600, #ff3300);
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 15px;
+            padding: 4px 10px;
             border-radius: 6px;
-            box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+            letter-spacing: 1px;
+            box-shadow: 0 0 12px rgba(255, 102, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .mystery-logo-text {
             color: #ffffff;
@@ -165,10 +169,10 @@
 </head>
 <body>
 
-    <!-- شريط شعار مستري في أعلى الموقع مع الشعار الفعلي -->
+    <!-- شريط شعار مستري في أعلى الموقع (تصميم MT النيون الفاخر والمضمون) -->
     <div class="top-mystery-bar">
         <span class="mystery-badge-icon">OFFICIAL</span>
-        <img src="https://i.ibb.co/68XwK3f/MT.png" alt="Mystery Logo" class="mystery-logo-img">
+        <div class="mystery-logo-badge">MT</div>
         <span class="mystery-logo-text">MYSTERY (مستري)</span>
     </div>
 
