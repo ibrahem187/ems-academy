@@ -52,13 +52,26 @@
         .hero-section { 
             background: linear-gradient(rgba(11, 19, 31, 0.9), rgba(11, 79, 108, 0.8)), url('https://i.ibb.co/QFBM0Zz4/image.png');
             background-size: cover; background-position: center;
-            color: white; padding: 60px 20px 50px 20px; text-align: center; border-bottom: 4px solid #01baef;
+            color: white; padding: 50px 20px 40px 20px; text-align: center; border-bottom: 4px solid #01baef;
             min-height: calc(100vh - 54px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+
+        /* تنسيق شعار الصحة في الواجهة */
+        .hero-logo-img {
+            width: 85px;
+            height: 85px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #01baef;
+            box-shadow: 0 0 20px rgba(1, 186, 239, 0.6);
+            margin-bottom: 12px;
+            background: #0f172a;
+        }
+
         .hero-badge { background: rgba(1, 186, 239, 0.2); color: #01baef; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid #01baef; display: inline-block; margin-bottom: 15px; }
         .hero-section h1 { font-size: 38px; margin-bottom: 15px; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
         .hero-section p { font-size: 16px; opacity: 0.9; max-width: 700px; margin: 0 auto 25px auto; }
@@ -223,6 +236,9 @@
     <!-- 1. واجهة الرئيسية (Dashboard) -->
     <div id="section-welcome" class="page-section active">
         <header class="hero-section">
+            <!-- شعار الصحة المضاف حديثاً -->
+            <img src="https://i.ibb.co/zWHsQvVH/medical-symbol-of-the-emergency-vector.jpg" alt="Medical Logo" class="hero-logo-img">
+            
             <div class="hero-badge">مرحباً بك في المنظومة الصحية</div>
             <h1>أهلاً بك أيها المسعف في أكاديمية الصحة</h1>
             <p>بوابتك الرسمية للاطلاع على القوانين، الأنظمة، البنود، العقوبات، الرتب، البروتوكولات، والمرافق بكل سهولة واحترافية.</p>
@@ -338,7 +354,7 @@
                             <td><b>5</b></td>
                             <td>الأخطاء المتكررة بروتوكولات الراديو</td>
                             <td>عدم الالتزام بالمعدات الخاصة بك</td>
-                            <td>اهمال الديسباتش وعدم التوجيه لحالات الـ997 أو عدم الرد على البلاغات</td>
+                            <td>إهمال الديسباتش وعدم التوجيه لحالات الـ997 أو عدم الرد على البلاغات</td>
                             <td>معالجة شخص مسقط كامل أو شخص حالته تجب نقله للمستشفى</td>
                             <td>حمل معدات غير قانونية ولا تليق بالإسعاف</td>
                         </tr>
