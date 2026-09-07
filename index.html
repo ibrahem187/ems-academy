@@ -8,18 +8,12 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #0b131f; color: #e2e8f0; line-height: 1.6; scroll-behavior: smooth; }
-        
-        nav { background: rgba(11, 79, 108, 0.95); color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(5px); border-bottom: 2px solid #01baef; }
-        nav h2 { font-size: 20px; color: #fff; }
-        nav ul { list-style: none; display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
-        nav ul li a { color: #cbd5e1; text-decoration: none; font-weight: bold; transition: color 0.3s; font-size: 13px; }
-        nav ul li a:hover { color: #01baef; }
 
         /* الصفحة الترحيبية */
         .hero-section { 
             background: linear-gradient(rgba(11, 19, 31, 0.9), rgba(11, 79, 108, 0.8)), url('https://i.ibb.co/QFBM0Zz4/image.png');
             background-size: cover; background-position: center;
-            color: white; padding: 80px 20px 60px 20px; text-align: center; border-bottom: 4px solid #01baef;
+            color: white; padding: 60px 20px 50px 20px; text-align: center; border-bottom: 4px solid #01baef;
         }
         .hero-badge { background: rgba(1, 186, 239, 0.2); color: #01baef; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; border: 1px solid #01baef; display: inline-block; margin-bottom: 15px; }
         .hero-section h1 { font-size: 38px; margin-bottom: 15px; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
@@ -133,29 +127,13 @@
 </head>
 <body>
 
-    <nav>
-        <h2>بوابة المتدربين - EMS Academy</h2>
-        <ul>
-            <li><a href="#welcome">الرئيسية</a></li>
-            <li><a href="#rules-system">القوانين</a></li>
-            <li><a href="#violations">المخالفات</a></li>
-            <li><a href="#penalties">العقوبات</a></li>
-            <li><a href="#badges-courses">الدورات</a></li>
-            <li><a href="#ranks">الرتب</a></li>
-            <li><a href="#protocols">البروتوكولات</a></li>
-            <li><a href="#facilities">المرافق</a></li>
-            <li><a href="#equipmentExplanation">شرح المعدات</a></li>
-            <li><a href="#treatmentVideo">شرح العلاج</a></li>
-            <li><a href="#zoneMap">الزونات</a></li>
-            <li><a href="#vehicles">المركبات</a></li>
-        </ul>
-    </nav>
-
+    <!-- 1. الصفحة الترحيبية -->
     <header id="welcome" class="hero-section">
         <div class="hero-badge">مرحباً بك في المنظومة الصحية</div>
         <h1>أهلاً بك أيها المسعف في أكاديمية الصحة</h1>
         <p>بوابتك الرسمية للاطلاع على القوانين، الأنظمة، البنود، العقوبات، الرتب، البروتوكولات، والمرافق بكل سهولة واحترافية.</p>
         
+        <!-- الأزرار التفاعلية في المنتصف -->
         <div class="ems-nav-grid">
             <a href="#welcome" class="nav-card">الرئيسية</a>
             <a href="#rules-system" class="nav-card">القوانين والأنظمة</a>
@@ -175,6 +153,7 @@
 
     <div class="container">
         
+        <!-- 2. القوانين والأنظمة -->
         <div id="rules-system" class="section-card">
             <h2>2. القوانين والأنظمة العامة</h2>
             <div class="rules-list">
@@ -204,6 +183,7 @@
             </div>
         </div>
 
+        <!-- 3. البنود والمخالفات الكاملة -->
         <div id="violations" class="section-card">
             <h2>3. البنود والمخالفات الكاملة (حسب الدرجات)</h2>
             <div class="table-responsive">
@@ -387,6 +367,7 @@
             </div>
         </div>
 
+        <!-- 4. جدول العقوبات -->
         <div id="penalties" class="section-card">
             <h2>4. جدول العقوبات والنسب حسب الرتب</h2>
             <div class="table-responsive">
@@ -419,6 +400,7 @@
             </div>
         </div>
 
+        <!-- 5. وينقات ودورات الصحة -->
         <div id="badges-courses" class="section-card">
             <h2>5. وينقات ودورات الصحة</h2>
             <div class="table-responsive">
@@ -473,6 +455,7 @@
             </div>
         </div>
 
+        <!-- 6. الرتب والوينقات -->
         <div id="ranks" class="section-card">
             <h2>6. الرتب والوينقات (Promotions & Certificates)</h2>
             <div class="table-responsive">
@@ -506,6 +489,7 @@
             </div>
         </div>
 
+        <!-- 7. الرولز والتحذيرات -->
         <div id="rules-warnings" class="section-card">
             <h2>7. القوانين والتحذيرات (Rules and Warnings)</h2>
             <div class="rules-list">
@@ -530,6 +514,7 @@
             </div>
         </div>
 
+        <!-- 8. البروتوكولات وأكواد اللاسلكي المعتمدة -->
         <div id="protocols" class="section-card">
             <h2>8. البروتوكولات وأكواد اللاسلكي المعتمدة</h2>
             <div class="table-responsive">
@@ -704,6 +689,7 @@
             </div>
         </div>
 
+        <!-- 9. مرافق المستشفى -->
         <div id="facilities" class="section-card">
             <h2>9. مرافق المستشفى الأساسية</h2>
             <div class="grid-3">
@@ -740,6 +726,7 @@
             </div>
         </div>
 
+        <!-- 10. شرح المعدات الطبية وكيفية أخذها -->
         <div id="equipmentExplanation" class="section-card">
             <h2>10. شرح المعدات الطبية وكيفية أخذها</h2>
             <div class="video-desc">شرح المعدات الطبية وكيفية أخذها</div>
@@ -776,6 +763,7 @@
             </div>
         </div>
 
+        <!-- 11. مرئيات وبروتوكولات العلاج -->
         <div id="treatmentVideo" class="section-card">
             <h2>11. مرئيات وبروتوكولات العلاج</h2>
             <div class="video-desc">شرح طريقة العلاج بشكل كامل</div>
@@ -794,6 +782,7 @@
             </div>
         </div>
 
+        <!-- 12. خريطة توزيع الزونات (EMS Zone Map) -->
         <div id="zoneMap" class="section-card">
             <h2>12. خريطة توزيع الزونات (EMS Zone Map)</h2>
             <div class="zone-img-box">
@@ -807,6 +796,7 @@
             </div>
         </div>
 
+        <!-- 13. المركبات المخصصة -->
         <div id="vehicles" class="section-card">
             <h2>13. المركبات المخصصة لكل رتبة</h2>
             <div class="grid-3">
@@ -835,7 +825,7 @@
                     </div>
                 </div>
                 <div class="custom-card">
-                    <div class="card-header" dir="ltr");>Name : Air</div>
+                    <div class="card-header" dir="ltr">Name : Air</div>
                     <img src="https://i.ibb.co/8nK4jvmJ/2026-09-07-124551.png" alt="Air EMS">
                     <div class="card-body" dir="ltr" style="text-align: center;">
                         <b style="color: #01baef;">لحاملي وينق الايرشب</b><br>
@@ -849,7 +839,7 @@
 
     <footer>
         <div>Ministry Of Health - Trainees Portal &copy; 2026</div>
-        <div>تم إعداد من قبل <span>إبراهيم عبدالله</span></div>
+        <div>تصميم وتطوير: <span>إبراهيم عبدالله (مستري)</span></div>
     </footer>
 </body>
 </html>
